@@ -1,0 +1,111 @@
+﻿@model List<FireFighter.Service.DTOs.PlayerAwardNamesDTO>
+@{
+    ViewBag.Title = "Awards";
+}
+<!D
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Award Name</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Mark</td>
+            <td>Mark</td>
+        </tr>
+    </tbody>
+</table>
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="~/Content/img/favicon.png" type="image/png">
+    <title>Nexus SaaS</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/Content/css/bootstrap.css">
+    <link rel="stylesheet" href="~/Content/vendors/linericon/style.css">
+    <link rel="stylesheet" href="~/Content/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/vendors/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Content/vendors/lightbox/simpleLightbox.css">
+    <link rel="stylesheet" href="~/Content/vendors/nice-select/css/nice-select.css">
+    <link rel="stylesheet" href="~/Content/vendors/animate-css/animate.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="~/Content/css/style.css">
+    <link rel="stylesheet" href="~/Content/css/responsive.css">
+</head>
+<body class="about_page">
+
+    <!--================Header Menu Area =================-->
+    <!--================Header Menu Area =================-->
+    <!--================Home Banner Area =================-->
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
+            <div class="container">
+                <div class="banner_content text-center">
+                    <div class="page_link">
+                        <a href="/Home/Index">Home</a>
+                        <a href="/Home/Awards">Awards</a>
+                    </div>
+                    <h2>Awards</h2>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================End Home Banner Area =================-->
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-12 text-center pt-3">
+            </div>
+        </div>
+       
+        <div class="row justify-content-md-center mb-4">
+            <div class="col-md-6">
+
+                <!--start code-->
+                <div class="widget">
+                    <!-- widget title -->
+                    <div class="mb-3 text-center">
+                        <h4>
+                            <span>Awards</span>
+                        </h4>
+                    </div>
+                    <!-- widget content -->
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Award Name</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Points</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr class="bg-secondarytext-white">
+                                    <td>@item.Name</td>
+                                    <td>@item.Description</td>
+                                    <td>@item.Point</td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                        <caption>Last Update Date : @DateTime.Now</caption>
+                    </table>
+                    <div class="gap-0"></div>
+                </div>
+                <!--end code-->
+
+            </div>
+        </div>
+
+
+    </div>
+</body>
+</html>

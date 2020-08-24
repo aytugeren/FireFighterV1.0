@@ -1,0 +1,148 @@
+﻿@model List<FireFighter.Service.DTOs.PlayerDTO>
+
+@{
+    ViewBag.Title = "Home Page";
+    var counter = 1;
+}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="~/Content/css/stylecomment.css" rel="stylesheet" />
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+
+<div class="container">
+    <div class="row mb-4">
+        <div class="col-12 text-center pt-3">
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="row justify-content-md-center mb-4">
+        <div class="col-md-6">
+
+            <!--start code-->
+            <div class="widget">
+                <!-- widget title -->
+                <div class="mb-3 text-center">
+                    <h4>
+                        <span>ScoreBoard</span>
+                    </h4>
+                </div>
+                <!-- widget content -->
+                <table class="table small mb-5">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Username</th>
+                            <th scope="col">Points</th>
+                            <th scope="col" style="text-align:center">Number of Enxtinguished</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            foreach (var item in Model)
+                            {
+                                if (counter < 3)
+                                {
+                                    <tr class="bg-success">
+
+                                        <th scope="row">@counter</th>
+                                        @if (item.Point < 200)
+                                        {
+                                            <td>@item.Username <i><span style="opacity: 0.4;">(New Player)</span></i></td>
+                                        }
+                                        else
+                                        {
+                                            <td>@item.Username</td>
+                                        }
+
+                                        <td>@item.Point</td>
+                                        <td style="text-align:center">@item.NumberOfExtinguished</td>
+                                    </tr>
+                                }
+
+                                else if (counter == 3)
+                                {
+                                    <tr class="bg-secondary">
+
+                                        <th scope="row">@counter</th>
+                                        @if (item.Point < 200)
+                                        {
+                                            <td>@item.Username <i><span style="opacity: 0.4;">(New Player)</span></i></td>
+                                        }
+                                        else
+                                        {
+                                            <td>@item.Username</td>
+                                        }
+
+                                        <td>@item.Point</td>
+                                        <td style="text-align:center">@item.NumberOfExtinguished</td>
+                                    </tr>
+                                }
+
+                                else
+                                {
+                                    <tr class="bg-secondarytext-white">
+
+                                        <th scope="row">@counter</th>
+                                        @if (item.Point < 200)
+                                        {
+                                            <td>@item.Username <i><span style="opacity: 0.4;">(New Player)</span></i></td>
+                                        }
+                                        else
+                                        {
+                                            <td>@item.Username</td>
+                                        }
+
+                                        <td>@item.Point</td>
+                                        <td style="text-align:center">@item.NumberOfExtinguished</td>
+                                    </tr>
+                                }
+
+                                counter = counter + 1;
+                            }
+                        }
+                    </tbody>
+                    <caption>Last Update Date : @DateTime.Now</caption>
+                </table>
+                <div class="gap-0"></div>
+            </div>
+            <!--end code-->
+
+        </div>
+    </div>
+
+    <!------ Include the above in your HEAD tag ---------->
+    <div class="container">
+       
+
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class="widget-area no-padding blank">
+                    <div class="status-upload">
+                            <h3 style="padding-left:120px">Comment</h3>
+                        <form>
+                            <textarea placeholder="Write a comment"></textarea>
+                            <ul>
+                                <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Audio"><i class="fa fa-music"></i></a></li>
+                                <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Video"><i class="fa fa-video-camera"></i></a></li>
+                                <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Sound Record"><i class="fa fa-microphone"></i></a></li>
+                                <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Picture"><i class="fa fa-picture-o"></i></a></li>
+                            </ul>
+                            <button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> Share</button>
+                        </form>
+                    </div><!-- Status Upload  -->
+                </div><!-- Widget Area -->
+            </div>
+
+        </div>
+    </div>
+
+
+</div>

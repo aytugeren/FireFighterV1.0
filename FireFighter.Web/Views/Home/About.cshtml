@@ -1,0 +1,154 @@
+﻿@model FireFighter.Service.DTOs.AboutPageDTO
+@{
+    ViewBag.Title = "About";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="~/Content/img/favicon.png" type="image/png">
+    <title>Nexus SaaS</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/Content/css/bootstrap.css">
+    <link rel="stylesheet" href="~/Content/vendors/linericon/style.css">
+    <link rel="stylesheet" href="~/Content/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/vendors/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Content/vendors/lightbox/simpleLightbox.css">
+    <link rel="stylesheet" href="~/Content/vendors/nice-select/css/nice-select.css">
+    <link rel="stylesheet" href="~/Content/vendors/animate-css/animate.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="~/Content/css/style.css">
+    <link rel="stylesheet" href="~/Content/css/responsive.css">
+</head>
+<body class="about_page">
+
+    <!--================Header Menu Area =================-->
+    <!--================Header Menu Area =================-->
+    <!--================Home Banner Area =================-->
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
+            <div class="container">
+                <div class="banner_content text-center">
+                    <div class="page_link">
+                        <a href="/Home/Index">Home</a>
+                        <a href="/Home/About">About</a>
+                    </div>
+                    <h2>About Us</h2>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================End Home Banner Area =================-->
+    <!--================Start About Us Area =================-->
+    <section class="about_us_area section_gap_top">
+        <div class="container">
+            <div class="row about_content align-items-center">
+                <div class="col-lg-6">
+                    <div class="section_content">
+                        <h6>About Us</h6>
+                        @foreach (var item in Model.AboutUsDTOs)
+                        {
+                            <h1>@item.Caption</h1>
+                            <p>@item.Description</p>
+                        }
+
+                        <a class="primary_btn" href="#aboutus">Learn More</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about_us_image_box justify-content-center">
+                        <img class="img-fluid w-100" src="~/Content/img/firefighter.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+    <!--================End About Us Area =================-->
+    <section class="about_us_area section_gap_top"id="aboutus">
+        <div class="container">
+            <div ></div>
+            <h2>About Us</h2>
+            <hr />
+            @foreach (var item in Model.AboutUsDTOs)
+            {
+                <p>@item.Description Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis non exercitationem illum distinctio eum omnis nihil ea, autem suscipit fugit quidem sed ad quas reprehenderit deserunt, mollitia quaerat voluptatum voluptatem dolor? Similique quam, ullam molestias minima quas eius inventore placeat consequuntur labore ut alias possimus nemo nobis est ea provident aspernatur culpa minus pariatur natus consequatur! Enim quisquam, explicabo aut suscipit repellat id ipsum amet iste ad facilis nam cum possimus nobis dolorum incidunt commodi deserunt facere distinctio? Officia omnis officiis corrupti magni fugit unde numquam deleniti, maiores cupiditate animi est, cumque modi veniam. Harum minima voluptatibus eos modi minus eveniet dicta atque, labore id natus possimus quidem. Aperiam animi nihil ab qui? Fugit eius nemo explicabo odio consectetur delectus! Incidunt delectus mollitia pariatur totam, suscipit dignissimos ipsam veniam impedit nulla dicta vero aut ut libero alias dolorem rerum ipsum repellendus tempore nostrum placeat tempora quo eum? Placeat, nam optio!   </p>
+            }
+            <hr />
+        </div>
+    </section>
+
+    <!--================ Start Frequently Asked Questions Area ================-->
+    <section class="frequently_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="main_title">
+                        <h2>Frequently Asked Questions</h2>
+                        <h1>Frequently Asked Questions</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row frequent_inner">
+                @{
+                    var counter = 1;
+                    foreach (var item in Model.AskedQuestionDTOs)
+                    {
+                        if (counter % 2 == 0)
+                        {
+                            <div class="offset-lg-2 col-lg-5 offset-md-2 col-md-5">
+                                <div class="frequent_item">
+                                    <h3>@item.Caption</h3>
+                                    <p>
+                                        @item.Description
+                                    </p>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col-lg-5 col-md-5">
+                                <div class="frequent_item">
+                                    <h3>@item.Caption</h3>
+                                    <p>
+                                        @item.Description
+                                    </p>
+                                </div>
+                            </div>
+                        }
+
+                        counter = counter + 1;
+                    }
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="~/Content/js/jquery-3.2.1.min.js"></script>
+    <script src="~/Content/js/popper.js"></script>
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <script src="~/Content/js/stellar.js"></script>
+    <script src="~/Content/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/Content/vendors/nice-select/js/jquery.nice-select.min.js"></script>
+    <script src="~/Content/vendors/isotope/imagesloaded.pkgd.min.js"></script>
+    <script src="~/Content/vendors/isotope/isotope-min.js"></script>
+    <script src="~/Content/vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="~/Content/js/jquery.ajaxchimp.min.js"></script>
+    <script src="~/Content/vendors/counter-up/jquery.waypoints.min.js"></script>
+    <script src="~/Content/vendors/counter-up/jquery.counterup.min.js"></script>
+    <script src="~/Content/js/mail-script.js"></script>
+    <!--gmaps Js-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+    <script src="~/Content/js/gmaps.min.js"></script>
+    <script src="~/Content/js/theme.js"></script>
+</body>
+</html>

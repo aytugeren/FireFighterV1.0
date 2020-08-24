@@ -1,0 +1,70 @@
+﻿@model FireFighter.Service.DTOs.PlayerDTO
+@{
+    ViewBag.Title = "SignUp";
+    Layout = null;
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="~/Content/img/favicon.png" type="image/png">
+    <title>Log In</title>
+    <!-- Bootstrap CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="~/Content/css/stylelogin.css" rel="stylesheet" />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<!------ Include the above in your HEAD tag ---------->
+
+
+<body>
+
+    <div id="login">
+        <h3 class="text-center text-white pt-5">Login form</h3>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12" style="height:auto">
+                        <form id="login-form" class="form" action="/User/SignUp" method="post">
+                            <h3 class="text-center text-info">Login</h3>
+                            <div class="form-group">
+                                <label for="username" class="text-info">Username:</label><br>
+                                <input type="text" name="Username" id="Username" class="form-control">
+                                @Html.ValidationMessageFor(x => x.Username, "", new { style = "color:white;background-color:red" })
+                            </div>
+                            <div class="form-group">
+                                <label for="Email" class="text-info">Email:</label><br>
+                                <input type="text" name="Email" id="Email" class="form-control">
+                                @Html.ValidationMessageFor(x => x.Email, "", new { style = "color:white;background-color:red" })
+                            </div>
+                            <div class="form-group">
+                                <label for="Password" class="text-info">Password:</label><br>
+                                <input type="password" name="Password" id="Password" class="form-control">
+                                @Html.ValidationMessageFor(x => x.Password, "", new { style = "color:white;background-color:red" })
+                            </div>
+                            <div class="form-group">
+                                <label for="ConfirmPassword" class="text-info">Confirm Password:</label><br>
+                                <input type="password" name="PasswordConfirm" id="PasswordConfirm" class="form-control">
+                                @Html.ValidationMessageFor(x => x.PasswordConfirm, "", new { style = "color:white;background-color:red" })
+                            </div>
+                            <center>
+                                <div class="form-group">
+                                    <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                                </div>
+                                <span style="opacity:0.4"><a href="/User/SignIn">Do you have an account?</a></span>
+                            </center>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+</html>
